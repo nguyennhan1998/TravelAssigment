@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="TravelService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="BasicHttpsBinding_ITravelService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="https://mytravelbigboss.azurewebsites.net/TravelService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="https://mytravelbigboss.azurewebsites.net/TravelService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="https://mytravelbigboss.azurewebsites.net/TravelService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/MyTravelServices" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ITravelService_GetPlaces_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaces" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_GetPlaces_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlacesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_CreatePlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlace" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_CreatePlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreatePlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_EditPlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditPlace" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_EditPlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditPlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_DeletePlace_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlace" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_DeletePlace_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlaceResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_GetImages_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetImages" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_GetImages_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetImagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_CreateImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateImage" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_CreateImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_EditImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditImage" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_EditImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_DeleteImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteImage" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_DeleteImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_GetComments_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetComments" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_GetComments_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCommentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_CreateComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateComment" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_CreateComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_EditComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditComment" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_EditComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditCommentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_DeleteComment_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteComment" />
+  </wsdl:message>
+  <wsdl:message name="ITravelService_DeleteComment_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCommentResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ITravelService">
+    <wsdl:operation name="GetPlaces">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelService/GetPlaces" message="tns:ITravelService_GetPlaces_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelService/GetPlacesResponse" message="tns:ITravelService_GetPlaces_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelService/CreatePlace" message="tns:ITravelService_CreatePlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelService/CreatePlaceResponse" message="tns:ITravelService_CreatePlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditPlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelService/EditPlace" message="tns:ITravelService_EditPlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelService/EditPlaceResponse" message="tns:ITravelService_EditPlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlace">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelService/DeletePlace" message="tns:ITravelService_DeletePlace_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelService/DeletePlaceResponse" message="tns:ITravelService_DeletePlace_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetImages">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelService/GetImages" message="tns:ITravelService_GetImages_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelService/GetImagesResponse" message="tns:ITravelService_GetImages_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelService/CreateImage" message="tns:ITravelService_CreateImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelService/CreateImageResponse" message="tns:ITravelService_CreateImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelService/EditImage" message="tns:ITravelService_EditImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelService/EditImageResponse" message="tns:ITravelService_EditImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteImage">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelService/DeleteImage" message="tns:ITravelService_DeleteImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelService/DeleteImageResponse" message="tns:ITravelService_DeleteImage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetComments">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelService/GetComments" message="tns:ITravelService_GetComments_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelService/GetCommentsResponse" message="tns:ITravelService_GetComments_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelService/CreateComment" message="tns:ITravelService_CreateComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelService/CreateCommentResponse" message="tns:ITravelService_CreateComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelService/EditComment" message="tns:ITravelService_EditComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelService/EditCommentResponse" message="tns:ITravelService_EditComment_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteComment">
+      <wsdl:input wsaw:Action="http://tempuri.org/ITravelService/DeleteComment" message="tns:ITravelService_DeleteComment_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ITravelService/DeleteCommentResponse" message="tns:ITravelService_DeleteComment_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ITravelService" type="tns:ITravelService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPlaces">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/GetPlaces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlace">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/CreatePlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPlace">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/EditPlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlace">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/DeletePlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImages">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/GetImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateImage">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/CreateImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditImage">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/EditImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteImage">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/DeleteImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComments">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/GetComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateComment">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/CreateComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditComment">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/EditComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteComment">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/DeleteComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BasicHttpsBinding_ITravelService" type="tns:ITravelService">
+    <wsp:PolicyReference URI="#BasicHttpsBinding_ITravelService_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetPlaces">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/GetPlaces" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreatePlace">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/CreatePlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditPlace">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/EditPlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlace">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/DeletePlace" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetImages">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/GetImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateImage">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/CreateImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditImage">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/EditImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteImage">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/DeleteImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetComments">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/GetComments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateComment">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/CreateComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditComment">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/EditComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteComment">
+      <soap:operation soapAction="http://tempuri.org/ITravelService/DeleteComment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TravelService">
+    <wsdl:port name="BasicHttpBinding_ITravelService" binding="tns:BasicHttpBinding_ITravelService">
+      <soap:address location="http://mytravelbigboss.azurewebsites.net/TravelService.svc" />
+    </wsdl:port>
+    <wsdl:port name="BasicHttpsBinding_ITravelService" binding="tns:BasicHttpsBinding_ITravelService">
+      <soap:address location="https://mytravelbigboss.azurewebsites.net/TravelService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,7 @@
+C:\Users\minht\source\repos\Thang-1996\MyTravelServices\bin\MyTravelServices.dll.config
+C:\Users\minht\source\repos\Thang-1996\MyTravelServices\bin\MyTravelServices.dll
+C:\Users\minht\source\repos\Thang-1996\MyTravelServices\bin\MyTravelServices.pdb
+C:\Users\minht\source\repos\Thang-1996\MyTravelServices\obj\Debug\MyTravelServices.csprojAssemblyReference.cache
+C:\Users\minht\source\repos\Thang-1996\MyTravelServices\obj\Debug\MyTravelServices.csproj.CoreCompileInputs.cache
+C:\Users\minht\source\repos\Thang-1996\MyTravelServices\obj\Debug\MyTravelServices.dll
+C:\Users\minht\source\repos\Thang-1996\MyTravelServices\obj\Debug\MyTravelServices.pdb
